@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "Editorial Quick View",
+  "version": "0.1.0",
+  "description": "Quickly view the Codeforces editorial for the problem you're solving.",
+  "content_scripts": [
+    {
+      "matches": ["https://codeforces.com/problemset/problem/*/*"],
+      "js": ["src/content.js"],
+      "css": ["src/styles.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}

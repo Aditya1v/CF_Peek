@@ -1,0 +1,18 @@
+#cf-editorial-button {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 99999;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  background: #2f80ed;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+#cf-editorial-button:hover {
+  background: #1f6fd1;
+}
