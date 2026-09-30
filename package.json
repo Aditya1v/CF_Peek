@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "test": "node src/test.js"
+    "test": "node src/test.js",
+    "build": "vite build"
+  },
+  "devDependencies": {
+    "vite": "^8.3.1"
   }
 }
