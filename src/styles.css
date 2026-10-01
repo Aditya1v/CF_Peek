@@ -1,3 +1,8 @@
+#cf-editorial-modal,
+#cf-editorial-modal * {
+  box-sizing: border-box;
+}
+
 #cf-editorial-button {
   position: fixed;
   right: 20px;
@@ -79,10 +84,12 @@
 }
 
 .cf-editorial-body pre {
+  max-height: 420px;
   padding: 12px;
-  overflow-x: auto;
+  overflow: auto;
   background: #f3f3f3;
   border-radius: 6px;
+  box-sizing: border-box;
 }
 
 .cf-editorial-body code {
