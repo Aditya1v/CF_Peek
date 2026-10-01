@@ -1,5 +1,5 @@
 import { parseProblemUrl } from "./problemParser.js";
-import { findTutorialLink, extractEditorial} from "./editorial.js";
+import { findTutorialLink, extractEditorial } from "./editorial.js";
 import { createEditorialModal } from "./ui.js";
 
 function loadKatexStyles() {
@@ -13,33 +13,39 @@ function loadKatexStyles() {
   document.head.appendChild(link);
 }
 
-loadKatexStyles();
-
-const button = document.createElement("button");
-
-button.textContent = "Editorial Quick View";
-button.id = "cf-editorial-button";
-
-button.addEventListener("click", async () => {
-  try {
-    const problem = parseProblemUrl(window.location.href);
-
-    const tutorialUrl = findTutorialLink();
-
-    if (!tutorialUrl) {
-      throw new Error("Tutorial not found");
-    }
-
-    const editorialHtml = await extractEditorial(
-      tutorialUrl,
-      problem.contestId,
-      problem.problemIndex
-    );
-
-    await createEditorialModal(editorialHtml);
-  } catch (error) {
-    console.error("Editorial error:", error);
+function createEditorialButton() {
+  if (document.getElementById("cf-editorial-button")) {
+    return;
   }
-});
 
-document.body.appendChild(button);
+  const button = document.createElement("button");
+
+  button.textContent = "Editorial Quick View";
+  button.id = "cf-editorial-button";
+
+  button.addEventListener("click", async () => {
+    try {
+      const problem = parseProblemUrl(window.location.href);
+      const tutorialUrl = findTutorialLink();
+
+      if (!tutorialUrl) {
+        throw new Error("Tutorial not found");
+      }
+
+      const editorialHtml = await extractEditorial(
+        tutorialUrl,
+        problem.contestId,
+        problem.problemIndex
+      );
+
+      await createEditorialModal(editorialHtml);
+    } catch (error) {
+      console.error("Editorial error:", error);
+    }
+  });
+
+  document.body.appendChild(button);
+}
+
+loadKatexStyles();
+createEditorialButton();
