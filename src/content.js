@@ -1,8 +1,19 @@
 import { parseProblemUrl } from "./problemParser.js";
 import { findTutorialLink, extractEditorial} from "./editorial.js";
+import { createEditorialModal } from "./ui.js";
 
+function loadKatexStyles() {
+  const link = document.createElement("link");
 
+  link.rel = "stylesheet";
+  link.href = chrome.runtime.getURL(
+    "dist/katex/katex.min.css"
+  );
 
+  document.head.appendChild(link);
+}
+
+loadKatexStyles();
 
 const button = document.createElement("button");
 
@@ -25,7 +36,7 @@ button.addEventListener("click", async () => {
       problem.problemIndex
     );
 
-    console.log("Extracted editorial:", editorialHtml);
+    await createEditorialModal(editorialHtml);
   } catch (error) {
     console.error("Editorial error:", error);
   }

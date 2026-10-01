@@ -6,9 +6,19 @@
   "content_scripts": [
     {
       "matches": ["https://codeforces.com/problemset/problem/*/*"],
-      "js": ["dist/content.js"],
+      "js": [
+        "dist/katex/katex.min.js",
+        "dist/katex/auto-render.min.js",
+        "dist/content.js"
+      ],
       "css": ["src/styles.css"],
       "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["dist/katex/*"],
+      "matches": ["https://codeforces.com/*"]
     }
   ]
 }
