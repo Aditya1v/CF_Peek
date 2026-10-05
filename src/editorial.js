@@ -19,12 +19,8 @@ export class EditorialError extends Error {
   }
 }
 
-/**
- * Finds the "Tutorial" link in the page sidebar.
- * Prefers the English version when several languages are listed.
- *
- * @returns {string | null} absolute URL, or null if the page has none
- */
+// Find the Tutorial/Editorial link
+
 export function findTutorialLink(root = document) {
   const links = [...root.querySelectorAll("a[href]")].filter((link) =>
     /^(tutorial|editorial)\b/i.test(link.textContent.trim()),
@@ -111,13 +107,8 @@ function renderMath(container) {
 
 const cache = new Map();
 
-/**
- * Fetches the tutorial page and returns the sanitised, math-rendered section
- * for one problem as a DOM element.
- *
- * @returns {Promise<HTMLElement>}
- * @throws {EditorialError}
- */
+// Fetch and extract the editorial for the current problem
+
 export async function extractEditorial(tutorialUrl, contestId, problemIndex) {
   const key = `${tutorialUrl}#${contestId}${problemIndex}`;
 

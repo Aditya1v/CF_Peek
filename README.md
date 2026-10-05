@@ -101,3 +101,7 @@ per editorial, to the Codeforces tutorial page you're already allowed to open.
 ## License
 
 [MIT](LICENSE)
+
+---
+
+Built with ❤️ by Aditya.

@@ -25,10 +25,8 @@ function createLink(href, label) {
   return link;
 }
 
-/**
- * Opens the editorial modal in its loading state and returns a handle to
- * update it. Only one modal exists at a time.
- */
+// Open the editorial modal
+
 export function openEditorialModal() {
   activeModal?.close();
 

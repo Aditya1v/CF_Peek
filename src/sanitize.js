@@ -1,7 +1,6 @@
 import DOMPurify from "dompurify";
 
-// Editorial HTML comes from a user-written blog post, so it is untrusted.
-// It is sanitised before it ever touches the live page.
+// Sanitize editorial HTML before adding it to the page.
 
 const purify = DOMPurify(window);
 
@@ -61,16 +60,14 @@ const CONFIG = {
     "link",
     "meta",
   ],
-  // Inline styles are dropped; spoiler visibility is handled with CSS classes.
+  // Remove inline styles and use CSS classes for spoilers.
   FORBID_ATTR: ["style"],
   ALLOW_DATA_ATTR: false,
   RETURN_DOM_FRAGMENT: true,
 };
 
 /**
- * Sanitises an HTML string and returns a DocumentFragment that is safe to
- * insert into the page. Relative links and images are resolved against
- * `pageUrl` (the URL the HTML was fetched from).
+ * Sanitizes the HTML before adding it to the page.
  *
  * @param {string} html
  * @param {string} pageUrl
