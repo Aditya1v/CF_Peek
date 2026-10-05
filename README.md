@@ -8,6 +8,8 @@ Open any problem, click **Editorial Quick View**, and the extension finds the
 contest's tutorial, pulls out the section for that problem, and displays it
 with math rendered and hints/solutions hidden until you click them.
 
+![Editorial Quick View demo: open a problem, click the button, and reveal hints, the solution and code](docs/demo.gif)
+
 ## Features
 
 - Works on `/problemset/problem/<contest>/<index>` and
