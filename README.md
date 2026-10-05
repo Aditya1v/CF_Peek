@@ -1,6 +1,6 @@
 <h1>
   <img src="docs/cfpeek-logo.png" width="70" alt="CF Peek Logo" style="vertical-align: middle;">
-  <span  style="position: relative; top: -8px;">CF_Peek</span>
+  <span  style="position: relative; top: 8px;">CF_Peek</span>
 </h1>
 
 A Chrome extension that shows the editorial for the Codeforces problem you're
