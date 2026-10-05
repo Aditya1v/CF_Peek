@@ -1,4 +1,4 @@
-# Editorial Quick View for Codeforces
+# CF_Peek
 
 A Chrome extension that shows the editorial for the Codeforces problem you're
 looking at in a pop-up, so you can check a hint without leaving the page or
