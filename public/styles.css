@@ -1,0 +1,241 @@
+#cf-editorial-modal,
+#cf-editorial-modal * {
+  box-sizing: border-box;
+}
+
+#cf-editorial-button {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 99999;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  background: #2f80ed;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+#cf-editorial-button:hover {
+  background: #1f6fd1;
+}
+
+#cf-editorial-button:focus-visible,
+.cf-editorial-close:focus-visible,
+.cf-editorial-source:focus-visible,
+.cf-editorial-body .spoiler-title:focus-visible {
+  outline: 2px solid #2f80ed;
+  outline-offset: 2px;
+}
+
+#cf-editorial-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+  font-family: Arial, sans-serif;
+}
+
+.cf-editorial-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+}
+
+.cf-editorial-dialog {
+  position: relative;
+  width: min(900px, 94vw);
+  height: min(800px, 85vh);
+  margin: 7vh auto 0;
+  background: white;
+  color: #222;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+.cf-editorial-header {
+  height: 58px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 1px solid #ddd;
+  background: #f7f7f7;
+}
+
+.cf-editorial-header h2 {
+  margin: 0;
+  font-size: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cf-editorial-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+.cf-editorial-source {
+  font-size: 14px;
+  color: #2f80ed;
+  text-decoration: none;
+}
+
+.cf-editorial-source:hover {
+  text-decoration: underline;
+}
+
+.cf-editorial-close {
+  border: none;
+  background: transparent;
+  font-size: 30px;
+  line-height: 1;
+  cursor: pointer;
+  color: #555;
+}
+
+.cf-editorial-close:hover {
+  color: #000;
+}
+
+.cf-editorial-body {
+  height: calc(100% - 58px);
+  padding: 24px;
+  overflow-y: auto;
+  line-height: 1.6;
+  font-size: 15px;
+  outline: none;
+}
+
+.cf-editorial-body a {
+  color: #2f80ed;
+}
+
+.cf-editorial-body a:not([href]) {
+  color: inherit;
+}
+
+.cf-editorial-body img {
+  max-width: 100%;
+  height: auto;
+}
+
+.cf-editorial-body pre {
+  max-height: 420px;
+  padding: 12px;
+  overflow: auto;
+  background: #f3f3f3;
+  border-radius: 6px;
+}
+
+.cf-editorial-body code {
+  font-family: monospace;
+}
+
+.cf-editorial-body table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+}
+
+.cf-editorial-body th,
+.cf-editorial-body td {
+  padding: 4px 10px;
+  border: 1px solid #ccc;
+}
+
+/* KaTeX inside the editorial */
+.cf-editorial-body .katex {
+  line-height: 1.2;
+}
+
+.cf-editorial-body .katex-display {
+  margin: 0.8em 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+/* Spoilers (hints, solutions). Hidden until the title is clicked. */
+.cf-editorial-body .spoiler {
+  margin: 10px 0;
+  border: 1px solid #d8d8d8;
+  border-radius: 6px;
+  background: #fafafa;
+}
+
+.cf-editorial-body .spoiler-title {
+  display: block;
+  padding: 8px 12px;
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+}
+
+.cf-editorial-body .spoiler-title::before {
+  content: "▸ ";
+}
+
+.cf-editorial-body .spoiler.cf-open > .spoiler-title::before {
+  content: "▾ ";
+}
+
+.cf-editorial-body .spoiler-content {
+  display: none;
+  padding: 0 12px 12px;
+}
+
+.cf-editorial-body .spoiler.cf-open > .spoiler-content {
+  display: block;
+}
+
+/* Loading and error states */
+.cf-editorial-loading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #555;
+}
+
+.cf-editorial-spinner {
+  width: 18px;
+  height: 18px;
+  border: 3px solid #ddd;
+  border-top-color: #2f80ed;
+  border-radius: 50%;
+  animation: cf-editorial-spin 0.8s linear infinite;
+}
+
+@keyframes cf-editorial-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cf-editorial-spinner {
+    animation-duration: 2.4s;
+  }
+}
+
+.cf-editorial-error {
+  padding: 14px 16px;
+  border: 1px solid #f0c2c2;
+  border-radius: 6px;
+  background: #fdf1f1;
+  color: #8a1f1f;
+}
+
+.cf-editorial-error p {
+  margin: 0 0 8px;
+}
+
+.cf-editorial-error p:last-child {
+  margin-bottom: 0;
+}

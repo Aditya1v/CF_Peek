@@ -1,15 +1,24 @@
 {
-  "name": "codeforces_extension",
+  "name": "codeforces-editorial-quick-view",
   "version": "1.0.0",
+  "description": "Chrome extension that shows the Codeforces editorial for a problem in a pop-up.",
+  "private": true,
   "type": "module",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aditya1v/codeforces_extension.git"
+  },
   "scripts": {
-    "test": "node src/test.js",
-    "build": "vite build"
+    "build": "vite build",
+    "test": "node --test",
+    "package": "npm run build && zip -r editorial-quick-view.zip manifest.json dist -x \"*.DS_Store\""
   },
   "devDependencies": {
     "vite": "^8.3.1"
   },
   "dependencies": {
+    "dompurify": "^3.4.0",
     "katex": "^0.18.10"
   }
 }

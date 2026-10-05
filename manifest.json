@@ -1,24 +1,32 @@
 {
   "manifest_version": 3,
-  "name": "Editorial Quick View",
-  "version": "0.1.0",
-  "description": "Quickly view the Codeforces editorial for the problem you're solving.",
+  "name": "Editorial Quick View for Codeforces",
+  "version": "1.0.0",
+  "description": "Read the editorial for the Codeforces problem you're solving in a quick pop-up, without leaving the page.",
+  "icons": {
+    "16": "dist/icons/icon16.png",
+    "48": "dist/icons/icon48.png",
+    "128": "dist/icons/icon128.png"
+  },
   "content_scripts": [
     {
-      "matches": ["https://codeforces.com/problemset/problem/*/*"],
+      "matches": [
+        "https://*.codeforces.com/problemset/problem/*/*",
+        "https://*.codeforces.com/contest/*/problem/*"
+      ],
       "js": [
         "dist/katex/katex.min.js",
         "dist/katex/auto-render.min.js",
         "dist/content.js"
       ],
-      "css": ["src/styles.css"],
+      "css": ["dist/styles.css"],
       "run_at": "document_idle"
     }
   ],
   "web_accessible_resources": [
     {
       "resources": ["dist/katex/*"],
-      "matches": ["https://codeforces.com/*"]
+      "matches": ["https://*.codeforces.com/*"]
     }
   ]
 }
